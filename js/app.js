@@ -19,7 +19,7 @@ const pdfTickets = {
     },
     'buckingham-palace-6475088.pdf': {
         name: 'Buckingham Palace State Rooms',
-        orderNumber: '6475088', 
+        orderNumber: '6475088',
         codes: ['HH 61 (99000009096717040947)', 'HH 60 (99000009096717040948)'],
         instructions: 'Print, sign, and bring to Gate C'
     },
@@ -32,7 +32,7 @@ const pdfTickets = {
 };
 
 // Initialize app
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initializeApp();
 });
 
@@ -173,7 +173,7 @@ function viewPDF(pdfFileName) {
         return;
     }
 
-    showPDFModal(ticket, pdfFileName);
+    window.open(pdfFileName, '_blank');
 }
 
 function downloadPDF(pdfFileName) {
