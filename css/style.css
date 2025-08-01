@@ -327,6 +327,7 @@ body {
     padding: 24px;
     box-shadow: var(--shadow);
     transition: all 0.2s ease;
+    position: relative;
 }
 
 .booking-card:hover {
@@ -558,4 +559,23 @@ body {
     .instruction-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Progress Checkboxes */
+.progress-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--success);
+    transform: scale(1.2);
+}
+
+.progress-checkbox:checked + .booking-card,
+.booking-card:has(.progress-checkbox:checked) {
+    opacity: 0.6;
+    background-color: #F3F4F6;
+}
+
+.progress-checkbox:hover {
+    transform: scale(1.3);
 }
