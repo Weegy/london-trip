@@ -1,0 +1,569 @@
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --royal-blue: #0033A0;
+    --gold: #D4AF37;
+    --white: #FFFFFF;
+    --light-gray: #F9FAFC;
+    --dark-text: #111111;
+    --medium-gray: #6B7280;
+    --success: #10B981;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background: var(--white);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Cost Bar */
+.cost-bar {
+    position: sticky;
+    top: 0;
+    background: var(--gold);
+    color: var(--royal-blue);
+    padding: 12px 0;
+    font-weight: 600;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.cost-bar .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.cost-amount {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cost-detail {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Header */
+.app-header {
+    background: linear-gradient(135deg, var(--royal-blue), #0052CC);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.app-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.app-subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 24px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--royal-blue);
+}
+
+.btn-secondary:hover {
+    background: var(--light-gray);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--royal-blue);
+}
+
+.maps-btn {
+    width: 100%;
+    background: var(--royal-blue);
+    color: var(--white);
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.2s ease;
+}
+
+.maps-btn:hover {
+    background: #0052CC;
+    transform: translateY(-1px);
+}
+
+/* Navigation */
+.desktop-nav {
+    background: var(--white);
+    border-bottom: 1px solid #E5E7EB;
+    padding: 0;
+    position: sticky;
+    top: 60px;
+    z-index: 90;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+.tab-btn {
+    padding: 16px 24px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--medium-gray);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    color: var(--royal-blue);
+    border-bottom-color: var(--gold);
+    font-weight: 600;
+}
+
+.tab-btn:hover {
+    color: var(--royal-blue);
+    background: var(--light-gray);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-top: 1px solid #E5E7EB;
+    padding: 8px;
+    z-index: 100;
+}
+
+.mobile-nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    background: none;
+    border: none;
+    color: var(--medium-gray);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    min-width: 60px;
+}
+
+.nav-btn.active {
+    color: var(--royal-blue);
+    background: rgba(0, 51, 160, 0.1);
+}
+
+.nav-icon {
+    font-size: 20px;
+}
+
+.nav-label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 0 120px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--royal-blue);
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: var(--medium-gray);
+    margin-bottom: 32px;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards */
+.booking-cards,
+.itinerary-cards,
+.food-cards,
+.info-cards {
+    display: grid;
+    gap: 20px;
+}
+
+/* Booking Cards */
+.booking-card {
+    background: var(--white);
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+}
+
+.booking-card.confirmed {
+    border-color: var(--success);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.booking-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.booking-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.booking-details h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.booking-details p {
+    color: var(--medium-gray);
+    margin-bottom: 8px;
+}
+
+.booking-time {
+    font-weight: 600;
+    color: var(--royal-blue);
+}
+
+.booking-status {
+    margin-left: auto;
+    color: var(--success);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Itinerary Cards */
+.itinerary-card {
+    background: var(--white);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: all 0.2s ease;
+}
+
+.itinerary-card.confirmed {
+    border-color: var(--success);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.itinerary-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.time-badge {
+    background: var(--royal-blue);
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--royal-blue);
+}
+
+.card-content p {
+    color: var(--medium-gray);
+    margin-bottom: 12px;
+}
+
+.cost-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--royal-blue);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.dress-code {
+    display: inline-block;
+    background: #F3F4F6;
+    color: var(--medium-gray);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.progress-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--success);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Food Cards */
+.food-card {
+    background: var(--white);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+}
+
+.food-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.food-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--royal-blue);
+    margin-bottom: 8px;
+}
+
+.food-card p {
+    color: var(--medium-gray);
+    margin-bottom: 12px;
+}
+
+.price-tag {
+    display: inline-block;
+    background: var(--light-gray);
+    color: var(--dark-text);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Info Cards */
+.info-card {
+    background: var(--white);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.info-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--royal-blue);
+    margin-bottom: 12px;
+}
+
+.info-card ul {
+    list-style: none;
+}
+
+.info-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.info-card li:last-child {
+    border-bottom: none;
+}
+
+.info-card strong {
+    color: var(--dark-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        padding-bottom: 80px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .main-content {
+        padding: 20px 0 100px;
+    }
+
+    .app-title {
+        font-size: 24px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .booking-cards,
+    .itinerary-cards,
+    .food-cards,
+    .info-cards {
+        gap: 16px;
+    }
+
+    .itinerary-card {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .time-badge {
+        align-self: flex-start;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cost-bar .container {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .cost-detail {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 769px) {
+    body {
+        font-size: 18px;
+    }
+
+    .booking-cards,
+    .food-cards,
+    .info-cards {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+
+/* Print Styles */
+@media print {
+    .cost-bar,
+    .desktop-nav,
+    .mobile-nav,
+    .maps-btn,
+    .header-actions,
+    .progress-checkbox {
+        display: none !important;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+
+    .tab-content {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+
+    .tab-content:not(:first-child) {
+        page-break-before: always;
+    }
+}

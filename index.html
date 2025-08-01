@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>London Royal & Historic 48-Hour Itinerary</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Cost Calculator Bar -->
+        <div class="cost-bar">
+            <div class="container">
+                <span class="cost-label">Outstanding Costs:</span>
+                <span class="cost-amount" id="cost-amount">£22</span>
+                <span class="cost-detail">(Temple Church £5 + Royal Mews £17)</span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <h1 class="app-title">London Royal & Historic<br>48-Hour Itinerary</h1>
+                <p class="app-subtitle">From The Savoy Hotel • August 1st-2nd</p>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="shareItinerary()">📤 Share</button>
+                    <button class="btn btn-outline" onclick="window.print()">🖨️ Print</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+            <div class="container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="bookings">📑 Bookings</button>
+                    <button class="tab-btn" data-tab="friday">📅 Friday</button>
+                    <button class="tab-btn" data-tab="saturday">📅 Saturday</button>
+                    <button class="tab-btn" data-tab="food">🍴 Food</button>
+                    <button class="tab-btn" data-tab="info">ℹ️ Info</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+
+                <!-- Bookings Tab -->
+                <div id="bookings-tab" class="tab-content active">
+                    <h2 class="section-title">✅ Your Confirmed Reservations</h2>
+                    <p class="section-subtitle">All major tickets and dining secured - you're ready to go!</p>
+
+                    <div class="booking-cards">
+                        <div class="booking-card confirmed">
+                            <div class="booking-header">
+                                <span class="booking-icon">🏛️</span>
+                                <div class="booking-details">
+                                    <h3>St Paul's Cathedral</h3>
+                                    <p>General Admission Ticket</p>
+                                    <span class="booking-time">Friday • 15:10 Entry</span>
+                                </div>
+                                <span class="booking-status">✅ Confirmed</span>
+                            </div>
+                            <button class="maps-btn" onclick="openAppleMaps('St Paul\'s Cathedral London')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="booking-card confirmed">
+                            <div class="booking-header">
+                                <span class="booking-icon">🏰</span>
+                                <div class="booking-details">
+                                    <h3>Buckingham Palace State Rooms</h3>
+                                    <p>Timed Entry Ticket</p>
+                                    <span class="booking-time">Friday • 17:15 Entry</span>
+                                </div>
+                                <span class="booking-status">✅ Confirmed</span>
+                            </div>
+                            <button class="maps-btn" onclick="openAppleMaps('Buckingham Palace London')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="booking-card confirmed">
+                            <div class="booking-header">
+                                <span class="booking-icon">🍽️</span>
+                                <div class="booking-details">
+                                    <h3>Savoy Grill - Gordon Ramsay</h3>
+                                    <p>Dinner Reservation</p>
+                                    <span class="booking-time">Friday • 20:30</span>
+                                </div>
+                                <span class="booking-status">✅ Confirmed</span>
+                            </div>
+                            <button class="maps-btn" onclick="openAppleMaps('Savoy Grill London')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="booking-card confirmed">
+                            <div class="booking-header">
+                                <span class="booking-icon">🏰</span>
+                                <div class="booking-details">
+                                    <h3>Tower of London</h3>
+                                    <p>Timed Entry Ticket</p>
+                                    <span class="booking-time">Saturday • 09:30 Entry</span>
+                                </div>
+                                <span class="booking-status">✅ Confirmed</span>
+                            </div>
+                            <button class="maps-btn" onclick="openAppleMaps('Tower of London')">📍 Apple Maps</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Friday Tab -->
+                <div id="friday-tab" class="tab-content">
+                    <h2 class="section-title">📅 Friday: Royal London</h2>
+                    <p class="section-subtitle">14:30-20:30 • 3.2 miles walking</p>
+
+                    <div class="itinerary-cards">
+                        <div class="itinerary-card">
+                            <div class="time-badge">14:30</div>
+                            <div class="card-content">
+                                <h3>Depart Savoy Hotel</h3>
+                                <p>Leave The Savoy and walk toward St Paul's Cathedral</p>
+                                <button class="maps-btn" onclick="openAppleMaps('The Savoy London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="savoy-depart">
+                        </div>
+
+                        <div class="itinerary-card confirmed">
+                            <div class="time-badge">15:10–15:45</div>
+                            <div class="card-content">
+                                <h3>St Paul's Cathedral</h3>
+                                <p>Explore Wren's baroque masterpiece • Ticket Confirmed ✅</p>
+                                <span class="cost-tag">Already paid</span>
+                                <button class="maps-btn" onclick="openAppleMaps('St Paul\'s Cathedral London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="st-pauls">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">15:50–16:20</div>
+                            <div class="card-content">
+                                <h3>Temple Church</h3>
+                                <p>12th-century Knights Templar round church</p>
+                                <span class="cost-tag">£5 (cash only)</span>
+                                <button class="maps-btn" onclick="openAppleMaps('Temple Church London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="temple-church">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">16:25–16:55</div>
+                            <div class="card-content">
+                                <h3>Royal Mews</h3>
+                                <p>See the Gold State Coach and working stables</p>
+                                <span class="cost-tag">£17</span>
+                                <button class="maps-btn" onclick="openAppleMaps('Royal Mews London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="royal-mews">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">17:00–17:15</div>
+                            <div class="card-content">
+                                <h3>Walk to Buckingham Palace</h3>
+                                <p>Short walk via Buckingham Gate</p>
+                                <button class="maps-btn" onclick="openAppleMaps('Buckingham Palace London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="palace-walk">
+                        </div>
+
+                        <div class="itinerary-card confirmed">
+                            <div class="time-badge">17:15–19:00</div>
+                            <div class="card-content">
+                                <h3>Buckingham Palace State Rooms</h3>
+                                <p>Tour the palace interiors (NO PHOTOS inside) • Ticket Confirmed ✅</p>
+                                <span class="cost-tag">Already paid</span>
+                                <button class="maps-btn" onclick="openAppleMaps('Buckingham Palace London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="palace-tour">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">19:00–20:20</div>
+                            <div class="card-content">
+                                <h3>St James's Park & Queen Victoria Memorial</h3>
+                                <p>Golden hour photography</p>
+                                <button class="maps-btn" onclick="openAppleMaps('St James\'s Park London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="st-james-park">
+                        </div>
+
+                        <div class="itinerary-card confirmed">
+                            <div class="time-badge">20:30</div>
+                            <div class="card-content">
+                                <h3>Savoy Grill Dinner</h3>
+                                <p>Beef Wellington & classics by Gordon Ramsay • Reservation Confirmed ✅</p>
+                                <span class="dress-code">Smart casual dress code</span>
+                                <button class="maps-btn" onclick="openAppleMaps('Savoy Grill London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="savoy-dinner">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saturday Tab -->
+                <div id="saturday-tab" class="tab-content">
+                    <h2 class="section-title">📅 Saturday: Historic London</h2>
+                    <p class="section-subtitle">09:00-16:30 • 4.8 miles walking</p>
+
+                    <div class="itinerary-cards">
+                        <div class="itinerary-card">
+                            <div class="time-badge">09:00–09:30</div>
+                            <div class="card-content">
+                                <h3>Walk Thames Path to Tower</h3>
+                                <p>Scenic riverside stroll</p>
+                                <button class="maps-btn" onclick="openAppleMaps('Thames Path London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="thames-walk">
+                        </div>
+
+                        <div class="itinerary-card confirmed">
+                            <div class="time-badge">09:30–11:00</div>
+                            <div class="card-content">
+                                <h3>Tower of London</h3>
+                                <p>Crown Jewels & medieval fortress • Ticket Confirmed ✅<br><strong>Strategy:</strong> Head straight to Crown Jewels</p>
+                                <span class="cost-tag">Already paid</span>
+                                <button class="maps-btn" onclick="openAppleMaps('Tower of London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="tower-london">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">11:05–11:25</div>
+                            <div class="card-content">
+                                <h3>Tower Bridge Crossing</h3>
+                                <p>Victorian bascule bridge views</p>
+                                <button class="maps-btn" onclick="openAppleMaps('Tower Bridge London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="tower-bridge">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">11:30–12:00</div>
+                            <div class="card-content">
+                                <h3>St Dunstan in the East</h3>
+                                <p>Bomb-damaged church garden - atmospheric ruins</p>
+                                <button class="maps-btn" onclick="openAppleMaps('St Dunstan in the East London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="st-dunstan">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">12:15–13:00</div>
+                            <div class="card-content">
+                                <h3>Southwark Cathedral</h3>
+                                <p>Gothic riverside cathedral</p>
+                                <button class="maps-btn" onclick="openAppleMaps('Southwark Cathedral London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="southwark-cathedral">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">13:00–14:00</div>
+                            <div class="card-content">
+                                <h3>Borough Market Lunch</h3>
+                                <p>Street-food haven - see Food tab for recommendations</p>
+                                <button class="maps-btn" onclick="openAppleMaps('Borough Market London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="borough-market">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">14:00–15:00</div>
+                            <div class="card-content">
+                                <h3>Westminster Abbey</h3>
+                                <p>Gothic coronation church</p>
+                                <span class="cost-tag">£29</span>
+                                <button class="maps-btn" onclick="openAppleMaps('Westminster Abbey London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="westminster-abbey">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">15:15–16:00</div>
+                            <div class="card-content">
+                                <h3>Platform 9¾ - King's Cross</h3>
+                                <p>Harry Potter photo op & shop - expect 30-45 min queue</p>
+                                <button class="maps-btn" onclick="openAppleMaps('King\'s Cross Station Platform 9 3/4')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="platform-nine">
+                        </div>
+
+                        <div class="itinerary-card">
+                            <div class="time-badge">16:00–16:30</div>
+                            <div class="card-content">
+                                <h3>Return to Savoy</h3>
+                                <p>Tube back to hotel</p>
+                                <button class="maps-btn" onclick="openAppleMaps('The Savoy London')">📍 Apple Maps</button>
+                            </div>
+                            <input type="checkbox" class="progress-checkbox" id="return-savoy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Tab -->
+                <div id="food-tab" class="tab-content">
+                    <h2 class="section-title">🍴 Top Food Picks at Borough Market</h2>
+                    <p class="section-subtitle">Hand-picked stalls & dishes for your Saturday lunch break</p>
+
+                    <div class="food-cards">
+                        <div class="food-card">
+                            <h3>Padella – Cacio e Pepe</h3>
+                            <p>Hand-rolled pasta with pecorino & black pepper – worth the queue</p>
+                            <span class="price-tag">£11 • 🥬 Vegetarian</span>
+                            <button class="maps-btn" onclick="openAppleMaps('Padella Borough Market')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="food-card">
+                            <h3>Brindisa Chorizo Grill – Chorizo & Rocket Roll</h3>
+                            <p>Iconic Spanish chorizo sandwich with roasted peppers & rocket</p>
+                            <span class="price-tag">£3.75</span>
+                            <button class="maps-btn" onclick="openAppleMaps('Brindisa Borough Market')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="food-card">
+                            <h3>Bread Ahead – Salted Caramel Doughnut</h3>
+                            <p>Legendary "pillows of joy" filled with silky caramel cream</p>
+                            <span class="price-tag">£4 • 🥬 Vegetarian</span>
+                            <button class="maps-btn" onclick="openAppleMaps('Bread Ahead Borough Market')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="food-card">
+                            <h3>Monmouth Coffee – Flat White</h3>
+                            <p>Single-origin beans, silky micro-foam – best coffee fix in London</p>
+                            <span class="price-tag">£3.80 • 🌱 Vegan</span>
+                            <button class="maps-btn" onclick="openAppleMaps('Monmouth Coffee Borough Market')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="food-card">
+                            <h3>Richard Haward's Oysters – Fresh Maldon Oysters</h3>
+                            <p>Shucked to order – add lemon or hot sauce for zing</p>
+                            <span class="price-tag">£2 each • 🐟 Pescatarian</span>
+                            <button class="maps-btn" onclick="openAppleMaps('Richard Haward Oysters Borough Market')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="food-card">
+                            <h3>Kappacasein Dairy – Raclette Cheese Toastie</h3>
+                            <p>Gooey raclette melted over potatoes or award-winning toasties</p>
+                            <span class="price-tag">£6 • 🥬 Vegetarian</span>
+                            <button class="maps-btn" onclick="openAppleMaps('Kappacasein Dairy Borough Market')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="food-card">
+                            <h3>El Pastor – Tuna Tostada</h3>
+                            <p>Fresh tuna with avocado and lime on crispy tortilla</p>
+                            <span class="price-tag">£7</span>
+                            <button class="maps-btn" onclick="openAppleMaps('El Pastor London')">📍 Apple Maps</button>
+                        </div>
+
+                        <div class="food-card">
+                            <h3>Horn OK Please – Chickpea Dosa</h3>
+                            <p>South Indian crepe with spiced chickpea filling</p>
+                            <span class="price-tag">£6 • 🌱 Vegan</span>
+                            <button class="maps-btn" onclick="openAppleMaps('Horn OK Please Borough Market')">📍 Apple Maps</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Tab -->
+                <div id="info-tab" class="tab-content">
+                    <h2 class="section-title">ℹ️ Practical Information</h2>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h3>📸 Photography Rules</h3>
+                            <ul>
+                                <li><strong>NO photos:</strong> Inside Buckingham Palace State Rooms</li>
+                                <li><strong>NO photos:</strong> Crown Jewels at Tower of London</li>
+                                <li><strong>Photos allowed:</strong> Palace gardens, all churches, Platform 9¾</li>
+                                <li><strong>Be respectful:</strong> No flash in churches</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>👔 Dress Codes</h3>
+                            <ul>
+                                <li><strong>Savoy Grill:</strong> Smart casual (jeans OK, no shorts/hoodies)</li>
+                                <li><strong>Churches:</strong> Modest dress preferred</li>
+                                <li><strong>General sightseeing:</strong> Comfortable walking shoes essential</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>🌦️ Weather & Packing</h3>
+                            <ul>
+                                <li><strong>Temperature:</strong> 22°C average highs</li>
+                                <li><strong>Pack:</strong> Light layers, waterproof jacket, umbrella</li>
+                                <li><strong>Footwear:</strong> Comfortable walking shoes (8+ miles total)</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>🚨 Emergency Contacts</h3>
+                            <ul>
+                                <li><strong>Emergency services:</strong> 999</li>
+                                <li><strong>Non-emergency medical:</strong> 111</li>
+                                <li><strong>The Savoy Hotel:</strong> +44 20 7836 4343</li>
+                                <li><strong>Tourist helpline:</strong> +44 20 7234 5800</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>⏰ Opening Hours</h3>
+                            <ul>
+                                <li><strong>Temple Church:</strong> Closes 16:00 sharp Friday</li>
+                                <li><strong>Royal Mews:</strong> Last entry 16:00</li>
+                                <li><strong>Borough Market:</strong> Saturday 9am-5pm</li>
+                                <li><strong>Platform 9¾:</strong> Mon-Sat 8am-10pm, Sun 9am-8pm</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>💡 Pro Tips</h3>
+                            <ul>
+                                <li><strong>Crown Jewels:</strong> Go straight there at 09:30 to beat crowds</li>
+                                <li><strong>Temple Church:</strong> Bring cash (£5 entry)</li>
+                                <li><strong>Borough Market queues:</strong> Arrive early or embrace the energy</li>
+                                <li><strong>Platform 9¾:</strong> Expect 30-45 min queue on weekends</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="mobile-nav">
+            <button class="nav-btn active" data-tab="bookings">
+                <span class="nav-icon">📑</span>
+                <span class="nav-label">Bookings</span>
+            </button>
+            <button class="nav-btn" data-tab="friday">
+                <span class="nav-icon">📅</span>
+                <span class="nav-label">Friday</span>
+            </button>
+            <button class="nav-btn" data-tab="saturday">
+                <span class="nav-icon">📅</span>
+                <span class="nav-label">Saturday</span>
+            </button>
+            <button class="nav-btn" data-tab="food">
+                <span class="nav-icon">🍴</span>
+                <span class="nav-label">Food</span>
+            </button>
+            <button class="nav-btn" data-tab="info">
+                <span class="nav-icon">ℹ️</span>
+                <span class="nav-label">Info</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
