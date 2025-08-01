@@ -1,0 +1,8 @@
+IMPORTANT: Replace this file with the actual PDF ticket
+
+This file should be replaced with:
+- St Paul's Cathedral: Voucher.pdf (Booking ID: 26413685)
+- Buckingham Palace: 6475088.pdf (Order: 6475088)  
+- Tower of London: TowerLondon.pdf (Booking ID: 26413686)
+
+The PDFs contain QR codes and barcodes needed for entry.

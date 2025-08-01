@@ -1,3 +1,5 @@
+/* London Itinerary App - Enhanced CSS with PDF Integration */
+
 /* CSS Reset and Base Styles */
 * {
     margin: 0;
@@ -13,8 +15,12 @@
     --dark-text: #111111;
     --medium-gray: #6B7280;
     --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --info: #3B82F6;
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
 }
 
 body {
@@ -23,6 +29,7 @@ body {
     line-height: 1.6;
     color: var(--dark-text);
     background: var(--white);
+    padding-bottom: 100px;
 }
 
 .container {
@@ -141,6 +148,50 @@ body {
     transform: translateY(-1px);
 }
 
+/* PDF Button Styling */
+.pdf-btn {
+    background: var(--danger);
+    color: var(--white);
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-top: 8px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.pdf-btn:hover {
+    background: #DC2626;
+    transform: translateY(-1px);
+}
+
+.pdf-btn.small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.download-btn {
+    background: var(--success);
+    color: var(--white);
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-top: 8px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.download-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
 /* Navigation */
 .desktop-nav {
     background: var(--white);
@@ -190,6 +241,7 @@ body {
     border-top: 1px solid #E5E7EB;
     padding: 8px;
     z-index: 100;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav {
@@ -267,14 +319,19 @@ body {
     gap: 20px;
 }
 
-/* Booking Cards */
+/* Booking Cards with Enhanced Ticket Styling */
 .booking-card {
     background: var(--white);
     border: 2px solid #E5E7EB;
-    border-radius: 12px;
-    padding: 20px;
+    border-radius: var(--border-radius);
+    padding: 24px;
     box-shadow: var(--shadow);
     transition: all 0.2s ease;
+}
+
+.booking-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
 }
 
 .booking-card.confirmed {
@@ -282,11 +339,16 @@ body {
     background: rgba(16, 185, 129, 0.05);
 }
 
+.ticket-card {
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(0, 51, 160, 0.02));
+}
+
 .booking-header {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .booking-icon {
@@ -298,6 +360,7 @@ body {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 4px;
+    color: var(--royal-blue);
 }
 
 .booking-details p {
@@ -308,6 +371,7 @@ body {
 .booking-time {
     font-weight: 600;
     color: var(--royal-blue);
+    font-size: 14px;
 }
 
 .booking-status {
@@ -317,163 +381,128 @@ body {
     font-size: 14px;
 }
 
-/* Itinerary Cards */
-.itinerary-card {
-    background: var(--white);
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    transition: all 0.2s ease;
+/* QR Section Styling */
+.qr-section {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+    border: 2px solid var(--danger);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
 }
 
-.itinerary-card.confirmed {
-    border-color: var(--success);
-    background: rgba(16, 185, 129, 0.05);
+.qr-section h4 {
+    color: var(--danger);
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
-.itinerary-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+/* Ticket Details Styling */
+.ticket-details {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.time-badge {
-    background: var(--royal-blue);
-    color: var(--white);
+.ticket-codes {
+    margin-bottom: 16px;
+}
+
+.ticket-code {
+    background: var(--light-gray);
     padding: 8px 12px;
     border-radius: 6px;
+    margin-bottom: 8px;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.ticket-code code {
+    font-weight: 600;
+    color: var(--royal-blue);
+    background: none;
+    padding: 0;
+}
+
+.ticket-info p {
+    margin-bottom: 8px;
     font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
-    flex-shrink: 0;
 }
 
-.card-content {
-    flex: 1;
+.ticket-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
 }
 
-.card-content h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--royal-blue);
+/* PDF Instructions Section */
+.pdf-instructions {
+    margin-top: 40px;
+    padding: 24px;
+    background: rgba(59, 130, 246, 0.05);
+    border: 2px solid var(--info);
+    border-radius: var(--border-radius);
 }
 
-.card-content p {
-    color: var(--medium-gray);
-    margin-bottom: 12px;
+.pdf-instructions h3 {
+    color: var(--info);
+    margin-bottom: 16px;
 }
 
-.cost-tag {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--royal-blue);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 8px;
+.instruction-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.dress-code {
-    display: inline-block;
-    background: #F3F4F6;
-    color: var(--medium-gray);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-style: italic;
-    margin-bottom: 8px;
-}
-
-.progress-checkbox {
-    width: 20px;
-    height: 20px;
-    accent-color: var(--success);
-    cursor: pointer;
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-/* Food Cards */
-.food-card {
+.instruction-card {
     background: var(--white);
+    padding: 16px;
+    border-radius: 8px;
     border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    transition: all 0.2s ease;
 }
 
-.food-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-}
-
-.food-card h3 {
-    font-size: 16px;
-    font-weight: 600;
+.instruction-card h4 {
     color: var(--royal-blue);
     margin-bottom: 8px;
 }
 
-.food-card p {
-    color: var(--medium-gray);
-    margin-bottom: 12px;
+/* Emergency Section */
+.emergency-section {
+    margin-top: 40px;
+    padding: 24px;
+    background: rgba(239, 68, 68, 0.05);
+    border: 2px solid var(--danger);
+    border-radius: var(--border-radius);
 }
 
-.price-tag {
-    display: inline-block;
-    background: var(--light-gray);
-    color: var(--dark-text);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 12px;
+.emergency-section h3 {
+    color: var(--danger);
+    margin-bottom: 16px;
 }
 
-/* Info Cards */
-.info-card {
+.contact-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.contact-card {
     background: var(--white);
+    padding: 16px;
+    border-radius: 8px;
     border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-}
-
-.info-card h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--royal-blue);
-    margin-bottom: 12px;
-}
-
-.info-card ul {
-    list-style: none;
-}
-
-.info-card li {
-    padding: 8px 0;
-    border-bottom: 1px solid #F3F4F6;
-}
-
-.info-card li:last-child {
-    border-bottom: none;
-}
-
-.info-card strong {
-    color: var(--dark-text);
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
         font-size: 16px;
-        padding-bottom: 80px;
+        padding-bottom: 100px;
     }
 
     .container {
@@ -489,7 +518,7 @@ body {
     }
 
     .main-content {
-        padding: 20px 0 100px;
+        padding: 20px 0 120px;
     }
 
     .app-title {
@@ -507,18 +536,10 @@ body {
         gap: 16px;
     }
 
-    .itinerary-card {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .time-badge {
-        align-self: flex-start;
-    }
-
     .header-actions {
         flex-direction: column;
         align-items: center;
+        gap: 8px;
     }
 
     .cost-bar .container {
@@ -529,41 +550,12 @@ body {
     .cost-detail {
         font-size: 12px;
     }
-}
 
-@media (min-width: 769px) {
-    body {
-        font-size: 18px;
+    .ticket-actions {
+        flex-direction: column;
     }
 
-    .booking-cards,
-    .food-cards,
-    .info-cards {
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    }
-}
-
-/* Print Styles */
-@media print {
-    .cost-bar,
-    .desktop-nav,
-    .mobile-nav,
-    .maps-btn,
-    .header-actions,
-    .progress-checkbox {
-        display: none !important;
-    }
-
-    .main-content {
-        padding: 0;
-    }
-
-    .tab-content {
-        display: block !important;
-        page-break-inside: avoid;
-    }
-
-    .tab-content:not(:first-child) {
-        page-break-before: always;
+    .instruction-grid {
+        grid-template-columns: 1fr;
     }
 }
